@@ -18,17 +18,20 @@ The resulting table of each query is shown beneath its associated SQL.
 
 The below SELECT query returns data on employee first and last names, the department they work in, the job title they have, and what recruitment channel brought them to the job application.
 
+```
 SELECT Employees.firstName, Employees.lastName, Departments.departmentTitle, Jobs.jobTitle, RecruitmentChannels.channelDescription
 FROM Departments
 INNER JOIN Jobs ON Departments.departmentID = Jobs.departmentID
 INNER JOIN Employment ON Employment.jobID = Jobs.jobID
 INNER JOIN Employees ON Employment.employeeID = Employees.employeeID
 INNER JOIN RecruitmentChannels ON Employees.channelID = RecruitmentChannels.channelID;  
+```
 
 ![Alt text](SELECTQuery1Result.jpeg)
 
 This next query returns the most popular recruitment channels for each department in the university.
 
+```
 SELECT Departments.departmentTitle, RecruitmentChannels.channelDescription, count(\*)
 FROM Departments
 INNER JOIN Jobs ON Departments.departmentID = Jobs.departmentID
@@ -36,16 +39,19 @@ INNER JOIN Employment ON Employment.jobID = Jobs.jobID
 INNER JOIN Employees ON Employment.employeeID = Employees.employeeID
 INNER JOIN RecruitmentChannels ON Employees.channelID = RecruitmentChannels.channelID
 GROUP BY Departments.departmentTitle, RecruitmentChannels.channelDescription)
+```
 
 ![Alt text](SELECTQuery2Result.jpeg)
 
 This query shows the most popular benefits among employees.
 
+```
 SELECT Benefits.benefitDescription, count(\*)
 FROM Employees
 INNER JOIN BenefitsEnrollment ON BenefitsEnrollment.employeeID = Employees.employeeID
 INNER JOIN Benefits ON Benefits.benefitID = BenefitsEnrollment.benefitID
 GROUP BY Benefits.benefitDescription
+```
 
 ![Alt text](SELECTQuery3Result.jpeg)
 
