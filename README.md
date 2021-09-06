@@ -6,7 +6,7 @@ I created a database using MySQL Workbench for a fictional university's human re
 ## Database Structure
 The University database consists of the following tables: RecruitmentChannels, Employees, Employment, Jobs, Departments, BenefitsEnrollment, and Benefits. Refer to the entity relationship diagram (ERD) below to view the table relationships. RecruitmentChannels contains ways employees become aware of job openings, leading to them applying for the positions later on. 
 
-![Alt text](/ERD.png")
+![Alt text](ERD.png)
 
 ## Many-to-Many Relationships
 There is a many-to-many relationship between Employees and Jobs because an Employee may hold more than one Job at the university and a Job title could apply to multiple Employees. To show which Employees have which Jobs, I created an intermediate table, Employment, which contains foreign keys referencing the Employees and Jobs tables. Employment shows which Employees have which Jobs.
@@ -25,7 +25,7 @@ INNER JOIN Employment ON Employment.jobID = Jobs.jobID
 INNER JOIN Employees ON Employment.employeeID = Employees.employeeID
 INNER JOIN RecruitmentChannels ON Employees.channelID = RecruitmentChannels.channelID;  
 
-![Alt text](SELECT Query 1 Result.jpeg")
+![Alt text](SELECT Query 1 Result.jpeg)
 
 This next query returns the most popular recruitment channels for each department in the university.
 
@@ -37,7 +37,7 @@ INNER JOIN Employees ON Employment.employeeID = Employees.employeeID
 INNER JOIN RecruitmentChannels ON Employees.channelID = RecruitmentChannels.channelID
 GROUP BY Departments.departmentTitle, RecruitmentChannels.channelDescription)
 
-![Alt text](SELECT Query 2 Result.jpeg")
+![Alt text](SELECT Query 2 Result.jpeg)
 
 This query shows the most popular benefits among employees.
 
@@ -47,7 +47,7 @@ INNER JOIN BenefitsEnrollment ON BenefitsEnrollment.employeeID = Employees.emplo
 INNER JOIN Benefits ON Benefits.benefitID = BenefitsEnrollment.benefitID
 GROUP BY Benefits.benefitDescription
 
-![Alt text](SELECT Query 3 Result.jpeg")
+![Alt text](SELECT Query 3 Result.jpeg)
 
 ## Fulfilling Business Needs
 The HR analytics team could use the results of these queries to tailor their recruitment strategies and employee benefits package design. For example, the data could help them focus on the most effective recruitment channels. Knowing which benefits plans are most popular among employees could lead to further investigations in how to design benefits.
