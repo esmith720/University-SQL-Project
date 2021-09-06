@@ -25,7 +25,7 @@ INNER JOIN Employment ON Employment.jobID = Jobs.jobID
 INNER JOIN Employees ON Employment.employeeID = Employees.employeeID
 INNER JOIN RecruitmentChannels ON Employees.channelID = RecruitmentChannels.channelID;  
 
-![Alt text](/SELECT Query 1 Result.jpeg")
+![Alt text](SELECT Query 1 Result.jpeg")
 
 This next query returns the most popular recruitment channels for each department in the university.
 
@@ -37,7 +37,7 @@ INNER JOIN Employees ON Employment.employeeID = Employees.employeeID
 INNER JOIN RecruitmentChannels ON Employees.channelID = RecruitmentChannels.channelID
 GROUP BY Departments.departmentTitle, RecruitmentChannels.channelDescription)
 
-![Alt text](/SELECT Query 2 Result.jpeg")
+![Alt text](SELECT Query 2 Result.jpeg")
 
 This query shows the most popular benefits among employees.
 
@@ -47,7 +47,7 @@ INNER JOIN BenefitsEnrollment ON BenefitsEnrollment.employeeID = Employees.emplo
 INNER JOIN Benefits ON Benefits.benefitID = BenefitsEnrollment.benefitID
 GROUP BY Benefits.benefitDescription
 
-![Alt text](/SELECT Query 3 Result.jpeg")
+![Alt text](SELECT Query 3 Result.jpeg")
 
 ## Fulfilling Business Needs
 The HR analytics team could use the results of these queries to tailor their recruitment strategies and employee benefits package design. For example, the data could help them focus on the most effective recruitment channels. Knowing which benefits plans are most popular among employees could lead to further investigations in how to design benefits.
